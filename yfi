@@ -1,0 +1,49 @@
+pools
+
+eth/yfi
+eth/woofy
+woofy/yfi
+
+start tokens eth or yfi (both are flashloanable)
+
+start with eth possible paths are
+
+flash eth
+swap eth -> yfi
+swap yfi -> woofy
+swap woofy -> eth
+
+flash eth
+swap eth -> yfi
+convert yfi -> woofy
+swap woofy -> eth
+
+flash eth
+swap eth -> woofy
+swap woofy -> yfi
+swap yfi -> eth
+
+flash eth
+swap eth -> woofy
+convert woofy -> yfi
+swap yfi -> eth
+
+flash yfi
+swap yfi -> woofy
+swap woofy -> eth
+swap eth -> yfi
+
+flash yfi
+convert yfi -> woofy
+swap woofy -> eth
+swap eth -> yfi
+
+flash yfi
+swap yfi -> eth
+swap eth -> woofy
+swap woofy -> yfi
+
+flash yfi
+swap yfi -> eth
+swap eth -> woofy
+convert woofy -> yfi

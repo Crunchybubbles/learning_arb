@@ -1,0 +1,20 @@
+import brownie
+from brownie import Contract, accounts, flash
+
+
+aave_lending_pool = "0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9"
+
+weth = Contract("0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2")
+weth_whale = "0x2f0b23f53734252bda2277357e97e1517d6b042a"
+
+def get_token_from_whale(token, whale, to):
+    token.transfer(to, token.balanceOf(whale), {"from": whale})
+
+def main():
+    f = flash.deploy(aave_lending_pool, {"from": accounts[0]})
+    get_token_from_whale(weth, weth_whale, f.address)
+    f.approve(weth.address)
+    f.raw_flash(weth.address, 10**18, {"from": accounts[0]})
+
+
+
